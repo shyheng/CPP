@@ -54,8 +54,29 @@ void text4()
 	//(a < b ? a : b) = 100;
 	*(a < b ? &a : &b) = 100;
 }
+
+//C语言中const修饰的变量保存在栈区
+void text5()
+{
+	const int a = 10;
+	//a= 100;
+	int* p = &a;
+	*p = 100;
+	printf("%d\n", a);
+	//如果在全局变量，修改不了常量
+	
+}
+void text6()
+{
+	extern const int num;
+	printf("%d\n", num);
+}
+
+
+
 int main()
 {
 	//text4();
+	//text6();
 	return 0;
 }
