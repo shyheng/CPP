@@ -14,7 +14,16 @@ public:
 		mAge = age;
 		name = (char*)malloc(strlen(str) + 1);
 		strcpy(name, str);
+	} 
+
+	//深拷贝
+	Person(const Person& p)
+	{
+		mAge = p.mAge;
+		name = (char*)malloc(strlen(p.name) + 1);
+		strcpy(name, p.name);
 	}
+
 	void show()
 	{
 		cout << name << " " << mAge << endl;
