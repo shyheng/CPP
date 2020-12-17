@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//开发时 对源码的修改是关闭的 对扩展是开发的
+//开发时 对源码的修改是关闭的 对扩展是开发的 
 //多态实现计算器案例
 class Mycalc
 {
@@ -38,11 +38,25 @@ void test1()
 class Calc
 {
 public:
-	virtual int myclac(int a, int b)
-	{
+	virtual int myclac(int a, int b) = 0;//虚函数等于0 纯虚函数
+	/*{
 		return 0;
-	}
+	}*/
 };
+
+class Mod :public Calc
+{
+	//子类继承了抽象类，那么子类也是一个抽象类
+	int myclac(int a,int b){}//如果子类重写类虚函数 就不是抽象类
+};
+
+//如果有纯虚函数的类 叫做抽象类 抽象类不能实例化对象
+void test3()
+{
+	//Calc p;
+	//Mod p1;
+}
+
 
 class Add :public Calc
 {
